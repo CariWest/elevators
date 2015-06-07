@@ -11,4 +11,5 @@ describe Elevator do
     expect(elevator.building). to eq building
   end
 
+
 end
