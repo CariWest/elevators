@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :elevator do
-    direction { "up" }
+    direction { "stationary" }
     floor { 0 }
   end
 
