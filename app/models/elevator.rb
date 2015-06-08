@@ -13,9 +13,9 @@ class Elevator < ActiveRecord::Base
     if self.direction == "stationary"
       fs = stationary
     elsif same_direction_suitable?(direction)
-      fs = same_direction_moving
+      fs = moving_same_direction
     elsif opp_direction_suitable?(direction)
-      fs = opp_direction_moving
+      fs = moving_opp_direction
     else
       fs = moving_away
     end
