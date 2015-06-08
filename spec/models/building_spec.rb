@@ -13,14 +13,20 @@ describe Building do
     let!(:elevator_2) { FactoryGirl.create(:elevator, building_id: building.id) }
 
     before(:each) do
-      # building.assign_elevators_to_floors
+      building.assign_elevators_to_floors
+      elevator_1.reload
+      elevator_2.reload
     end
 
     it "should distribute elevators evenly amongst a building to maximize coverage" do
       building.assign_elevators_to_floors
 
-      expect(elevator_1.reload.floor).to eq 2
-      expect(elevator_2.reload.floor).to eq 7
+      expect(elevator_1.floor).to eq 2
+      expect(elevator_2.floor).to eq 7
     end
+  end
+
+  context "finding the most suitable elevator" do
+
   end
 end

@@ -35,7 +35,6 @@ describe Elevator do
   end
 
   context "the elevator is moving away from the call" do
-
     it "should have an FS equal to 1" do
       elevator.floor = 5
       elevator.direction = "down"
