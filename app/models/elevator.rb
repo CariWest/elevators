@@ -6,6 +6,30 @@ class Elevator < ActiveRecord::Base
     self.save!
   end
 
+  def same_direction_suitable?(direction)
+    if direction == self.direction
+      if direction == "down" && @floor_called < self.floor
+        return true
+      elsif direction == "up" && @floor_called > self.floor
+        return true
+      end
+    end
+
+    false
+  end
+
+  def opp_direction_suitable?(direction)
+    if direction != self.direction
+      if self.direction == "down" && @floor_called < self.floor
+        return true
+      elsif self.direction == "up" && @floor_called > self.floor
+        return true
+      end
+    end
+
+    false
+  end
+
   def stationary
     @building_floors - distance
   end
