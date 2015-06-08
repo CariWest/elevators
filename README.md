@@ -6,12 +6,11 @@ An elevator system which manages the elevators in a high rise.
 
 In a high rise, there might be any number of elevators. To efficiently serve the occupants of the building, unoccupied elevators are evenly spaced out along the floors of the building.
 
-Elevator calls are assigned to the elevator best placed to answer that call according to three criteria that are used to compute a figure of suitability (FS) for each elevator. (1) If an elevator is moving towards a call, and the call is in the same direction, FS = (N + 2) - d, where N is one less than the number of floors in the building, and d is the distance in floors between the elevator and the passenger call. (2) If the elevator is moving towards the call, but the call is in the opposite direction, FS = (N + 1) - d.  (3) If the elevator is moving away from the point of call, FS = 1. The elevator with the highest FS for each call is sent to answer it. The search for the "nearest car" is performed continuously until each call is serviced.
-
 When an occupant requests an elevator, the nearest suitable unoccupied elevator will respond. The nearest suitable elevator is determined by the Figure of Suitability (FS). Factors which influence the Figure of Suitability are N (one less than the number of floors) and d (the distance in floors between the elevator and the passenger).
-  1. If an elevator is moving towards a call and the call is in the same direction, FS = (N + 2) - d
-  2. If the elevator is moving towards the call, but the call is in the opposite direction, FS = (N + 1) - d
-  3. If the elevator is moving away from the point of call, FS = 1
+  1. If an elevator is stationary, FS = N - d
+  2. If an elevator is moving towards a call and the call is in the same direction, FS = (N + 2) - d
+  3. If the elevator is moving towards the call, but the call is in the opposite direction, FS = (N + 1) - d
+  4. If the elevator is moving away from the point of call, FS = 1
 
 The elevator with the highes FS will respond. **The search for the "nearest call" is performed continuously until each call is serviced.**
 
