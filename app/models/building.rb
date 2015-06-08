@@ -1,7 +1,9 @@
 class Building < ActiveRecord::Base
   has_many :elevators
 
-g  def assign_elevators_to_floors
+  # private
+
+  def assign_elevators_to_floors
     num_floors = self.floors
     num_elevators = self.elevators.count
 
