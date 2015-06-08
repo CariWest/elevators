@@ -6,6 +6,21 @@ class Elevator < ActiveRecord::Base
     self.save!
   end
 
+  def figure_of_suitability(floor_called, direction)
+    @building_floors = building.floors
+    @floor_called = floor_called
+
+    if self.direction == "stationary"
+      fs = stationary
+    elsif same_direction_suitable?(direction)
+      fs = same_direction_moving
+    elsif opp_direction_suitable?(direction)
+      fs = opp_direction_moving
+    else
+      fs = moving_away
+    end
+  end
+
   def same_direction_suitable?(direction)
     if direction == self.direction
       if direction == "down" && @floor_called < self.floor
