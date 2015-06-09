@@ -1,5 +1,6 @@
 class Elevator < ActiveRecord::Base
   belongs_to :building
+  has_many :queued_floors, foreign_key: :approaching_elevator_id
 
   def move_to(new_floor)
     self.floor = new_floor

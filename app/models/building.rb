@@ -1,5 +1,6 @@
 class Building < ActiveRecord::Base
   has_many :elevators
+  has_many :floors
 
   # private
 
