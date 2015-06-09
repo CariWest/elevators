@@ -8,7 +8,7 @@ class Elevator < ActiveRecord::Base
   end
 
   def figure_of_suitability(floor_called, direction)
-    @building_floors = building.floors
+    @floor_count = building.floors.count
     @floor_called = floor_called
 
     if self.direction == "stationary"
@@ -47,15 +47,15 @@ class Elevator < ActiveRecord::Base
   end
 
   def stationary
-    @building_floors - distance
+    @floor_count - distance
   end
 
   def moving_same_direction
-    (@building_floors + 2) - distance
+    (@floor_count + 2) - distance
   end
 
   def moving_opp_direction
-    (@building_floors + 1) - distance
+    (@floor_count + 1) - distance
   end
 
   def moving_away
