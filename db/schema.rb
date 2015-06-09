@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20150609030116) do
 
   create_table "floors", force: :cascade do |t|
     t.integer  "building_id"
-    t.integer  "elevator_id"
-    t.boolean  "waiting_passengers", default: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.integer  "approaching_elevator_id"
+    t.boolean  "waiting_passengers",      default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
 end
