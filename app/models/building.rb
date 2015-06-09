@@ -15,4 +15,20 @@ class Building < ActiveRecord::Base
       elevator.move_to(new_floor)
     end
   end
+
+  def find_elevator(floor_called, direction)
+    best_elevator = self.elevators.first
+    best_fs = 0
+
+    self.elevators.each do |elevator|
+      current_fs = elevator.figure_of_suitability(floor_called, direction)
+      if current_fs > best_fs
+        best_fs = current_fs
+        best_elevator = elevator
+      end
+    end
+
+    # elevator.queue_floor(floor_called)
+    return best_elevator
+  end
 end
