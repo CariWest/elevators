@@ -3,31 +3,38 @@ require 'rails_helper'
 describe Building do
   let!(:building) { FactoryGirl.create(:building) }
 
-  let!(:elevator_1) { FactoryGirl.create(:elevator, building_id: building.id) }
-  let!(:elevator_2) { FactoryGirl.create(:elevator, building_id: building.id) }
+  # let!(:elevator_1) { FactoryGirl.create(:elevator, building: building) }
+  # let!(:elevator_2) { FactoryGirl.create(:elevator, building: building) }
 
   before(:each) do
-    FactoryGirl.create_list(:floor, 10, building_id: building.id)
-
-    building.assign_elevators_to_floors
-    elevator_1.reload
-    elevator_2.reload
+    10.times { |x| building.floors.create(building: building, floor_num: (x + 1)) }
   end
+
+  let!(:elevator_1) { building.elevators.create(building: building, direction: "stationary", floor: building.floors.first) }
+  let!(:elevator_2) { building.elevators.create(building: building, direction: "stationary", floor: building.floors.first) }
 
   it "should initialize with the correct number of floors" do
     expect(building.floors.count).to eq 10
   end
 
   context "distributing elevators amongst a building" do
-    it "should distribute elevators evenly amongst a building to maximize coverage" do
+    before(:each) do
       building.assign_elevators_to_floors
+    end
 
-      expect(elevator_1.floor).to eq 2
-      expect(elevator_2.floor).to eq 7
+    it "should distribute elevators evenly amongst a building to maximize coverage" do
+
+      expect(elevator_1.floor).to eq building.floors.find_by(floor_num: 2)
+      expect(elevator_2.floor_id).to eq 7
     end
   end
 
   context "finding the most suitable elevator" do
+
+    before(:each) do
+      building.assign_elevators_to_floors
+    end
+
     it "should pick the elevator which is the closest when both are stationary" do
       expect(building.find_elevator(1, "up")).to eq elevator_1
       expect(building.find_elevator(10, "down")).to eq elevator_2

@@ -9,10 +9,9 @@ describe Elevator do
   let!(:building) { FactoryGirl.create(:building) }
   let!(:elevator) { FactoryGirl.create(:elevator, building_id: building.id) }
 
-  it "should initialize on floor 0 as stationary" do
-    expect(elevator.floor).to eq 0
+  it "should initialize as stationary" do
     expect(elevator.direction).to eq "stationary"
-    expect(elevator.building). to eq building
+    expect(elevator.building).to eq building
   end
 
   context "elevator is called while stationary" do

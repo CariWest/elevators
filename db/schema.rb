@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609031325) do
+ActiveRecord::Schema.define(version: 20150609203552) do
 
   create_table "buildings", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150609031325) do
 
   create_table "elevators", force: :cascade do |t|
     t.string   "direction"
-    t.integer  "floor"
+    t.integer  "floor_id"
     t.integer  "building_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
