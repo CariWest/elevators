@@ -10,8 +10,10 @@ class Building < ActiveRecord::Base
     floors_per_section = num_floors / num_sections
 
     elevators.each_with_index do |elevator, index|
-      new_floor = (index * floors_per_section) + (floors_per_section / 2)
+      floor_num = (index * floors_per_section) + (floors_per_section / 2)
+      new_floor = Floor.find_by(floor_num: floor_num)
       elevator.move_to(new_floor)
+      elevator.save!
     end
   end
 

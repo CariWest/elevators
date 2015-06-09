@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-06-09T14:56:35-07:00">2015-06-09T14:56:35-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-06-09T15:01:29-07:00">2015-06-09T15:01:29-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">85.06%</span></span>
+    (<span class="covered_percent"><span class="yellow">87.36%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.87
+         2.1
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>22</b> files in total.
-    <b>154</b> relevant lines. 
-    <span class="green"><b>131</b> lines covered</span> and
+    <b>24</b> files in total.
+    <b>182</b> relevant lines. 
+    <span class="green"><b>159</b> lines covered</span> and
     <span class="red"><b>23</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -62,22 +62,22 @@
       
       <tr>
         <td class="strong"><a href="#fcbe01be78c6602bf3d03b5a3b00574264504bdb" class="src_link" title="app/models/building.rb">app/models/building.rb</a></td>
-        <td class="red strong">78.26 %</td>
-        <td>41</td>
-        <td>23</td>
+        <td class="yellow strong">81.82 %</td>
+        <td>36</td>
+        <td>22</td>
         <td>18</td>
-        <td>5</td>
-        <td>3.2</td>
+        <td>4</td>
+        <td>3.7</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#fb8e3adec05854b01a3ee349429e78752ef975f9" class="src_link" title="app/models/elevator.rb">app/models/elevator.rb</a></td>
-        <td class="red strong">66.67 %</td>
+        <td class="red strong">71.79 %</td>
         <td>69</td>
         <td>39</td>
-        <td>26</td>
-        <td>13</td>
-        <td>1.0</td>
+        <td>28</td>
+        <td>11</td>
+        <td>2.1</td>
       </tr>
       
       <tr>
@@ -237,7 +237,7 @@
         <td>3</td>
         <td>3</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>2.7</td>
       </tr>
       
       <tr>
@@ -258,6 +258,26 @@
         <td>31</td>
         <td>5</td>
         <td>3.3</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#f7f99ee598cf5d316bb7cd9f31a452f5cd1a7fa5" class="src_link" title="spec/models/elevator_spec.rb">spec/models/elevator_spec.rb</a></td>
+        <td class="yellow strong">86.96 %</td>
+        <td>46</td>
+        <td>23</td>
+        <td>20</td>
+        <td>3</td>
+        <td>1.3</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#f19ed0c7c4cb2b382c093325cd148526bcd2ceda" class="src_link" title="spec/models/floor_spec.rb">spec/models/floor_spec.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>9</td>
+        <td>6</td>
+        <td>6</td>
+        <td>0</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -319,11 +339,11 @@
         <div class="source_table" id="fcbe01be78c6602bf3d03b5a3b00574264504bdb">
   <div class="header">
     <h3>app/models/building.rb</h3>
-    <h4><span class="red">78.26 %</span> covered</h4>
+    <h4><span class="yellow">81.82 %</span> covered</h4>
     <div>
-      <b>23</b> relevant lines. 
+      <b>22</b> relevant lines. 
       <span class="green"><b>18</b> lines covered</span> and
-      <span class="red"><b>5</b> lines missed.</span>
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -357,19 +377,19 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">  def next_floor_num</code>
+          <code class="ruby">  def assign_elevators_to_floors</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
+        <li class="covered" data-hits="5" data-linenumber="6">
+          <span class="hits">5</span>
           
-          
-          <code class="ruby">    self.floors.count + 1</code>
+          <code class="ruby">    num_floors = self.floors.count</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="covered" data-hits="5" data-linenumber="7">
+          <span class="hits">5</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    num_elevators = self.elevators.count</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -378,199 +398,169 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def assign_elevators_to_floors</code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="10">
-          <span class="hits">5</span>
-          
-          <code class="ruby">    num_floors = self.floors.count</code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="11">
-          <span class="hits">5</span>
-          
-          <code class="ruby">    num_elevators = self.elevators.count</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="13">
+        <li class="covered" data-hits="5" data-linenumber="9">
           <span class="hits">5</span>
           
           <code class="ruby">    num_sections = num_elevators</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="14">
+        <li class="covered" data-hits="5" data-linenumber="10">
           <span class="hits">5</span>
           
           <code class="ruby">    floors_per_section = num_floors / num_sections</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="16">
+        <li class="covered" data-hits="5" data-linenumber="12">
           <span class="hits">5</span>
           
           <code class="ruby">    elevators.each_with_index do |elevator, index|</code>
         </li>
       
+        <li class="covered" data-hits="10" data-linenumber="13">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      floor_num = (index * floors_per_section) + (floors_per_section / 2)</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="14">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      new_floor = Floor.find_by(floor_num: floor_num)</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="15">
+          <span class="hits">10</span>
+          
+          <code class="ruby">      elevator.move_to(new_floor)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">      # elevator.floor = Floor.find_by(floor_num: new_floor)</code>
+        </li>
+      
         <li class="covered" data-hits="10" data-linenumber="17">
-          <span class="hits">10</span>
-          
-          <code class="ruby">      new_floor = (index * floors_per_section) + (floors_per_section / 2)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">      # p &quot;new_floor: #{new_floor}&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">      # reducing complexity because Factory Girl is always initializing it on Floor 1. Otherwise, it would be off floor_num: new_floor</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">      # p &quot;floor: #{floor = Floor.find_by(floor_num: new_floor)}&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="10" data-linenumber="21">
-          <span class="hits">10</span>
-          
-          <code class="ruby">      elevator.floor = Floor.find_by(floor_num: new_floor)</code>
-        </li>
-      
-        <li class="covered" data-hits="10" data-linenumber="22">
           <span class="hits">10</span>
           
           <code class="ruby">      elevator.save!</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_elevator(floor_called, direction)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="27">
+        <li class="covered" data-hits="3" data-linenumber="22">
           <span class="hits">3</span>
           
           <code class="ruby">    best_elevator = self.elevators.first</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="28">
+        <li class="covered" data-hits="3" data-linenumber="23">
           <span class="hits">3</span>
           
           <code class="ruby">    best_fs = 0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="30">
+        <li class="covered" data-hits="3" data-linenumber="25">
           <span class="hits">3</span>
           
           <code class="ruby">    self.elevators.each do |elevator|</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="31">
+        <li class="covered" data-hits="3" data-linenumber="26">
           <span class="hits">3</span>
           
           <code class="ruby">      current_fs = elevator.figure_of_suitability(floor_called, direction)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="missed" data-hits="0" data-linenumber="27">
           
           
           <code class="ruby">      if current_fs &gt; best_fs</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
+        <li class="missed" data-hits="0" data-linenumber="28">
           
           
           <code class="ruby">        best_fs = current_fs</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
+        <li class="missed" data-hits="0" data-linenumber="29">
           
           
           <code class="ruby">        best_elevator = elevator</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">    # elevator.queue_floor(floor_called)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="39">
+        <li class="missed" data-hits="0" data-linenumber="34">
           
           
           <code class="ruby">    return best_elevator</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="35">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">end</code>
@@ -583,11 +573,11 @@
         <div class="source_table" id="fb8e3adec05854b01a3ee349429e78752ef975f9">
   <div class="header">
     <h3>app/models/elevator.rb</h3>
-    <h4><span class="red">66.67 %</span> covered</h4>
+    <h4><span class="red">71.79 %</span> covered</h4>
     <div>
       <b>39</b> relevant lines. 
-      <span class="green"><b>26</b> lines covered</span> and
-      <span class="red"><b>13</b> lines missed.</span>
+      <span class="green"><b>28</b> lines covered</span> and
+      <span class="red"><b>11</b> lines missed.</span>
     </div>
   </div>
   
@@ -630,14 +620,14 @@
           <code class="ruby">  def move_to(new_floor)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="7">
-          
+        <li class="covered" data-hits="10" data-linenumber="7">
+          <span class="hits">10</span>
           
           <code class="ruby">    self.floor = new_floor</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
-          
+        <li class="covered" data-hits="10" data-linenumber="8">
+          <span class="hits">10</span>
           
           <code class="ruby">    self.save!</code>
         </li>
@@ -660,14 +650,14 @@
           <code class="ruby">  def figure_of_suitability(floor_called, direction)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="12">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="7" data-linenumber="12">
+          <span class="hits">7</span>
           
           <code class="ruby">    @floor_count = building.floors.count</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="13">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="7" data-linenumber="13">
+          <span class="hits">7</span>
           
           <code class="ruby">    @floor_called = floor_called</code>
         </li>
@@ -678,20 +668,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="15">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="7" data-linenumber="15">
+          <span class="hits">7</span>
           
           <code class="ruby">    if self.direction == &quot;stationary&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">      fs = stationary</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="17">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="17">
+          <span class="hits">5</span>
           
           <code class="ruby">    elsif same_direction_suitable?(direction)</code>
         </li>
@@ -702,8 +692,8 @@
           <code class="ruby">      fs = moving_same_direction</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="19">
+          <span class="hits">2</span>
           
           <code class="ruby">    elsif opp_direction_suitable?(direction)</code>
         </li>
@@ -750,14 +740,14 @@
           <code class="ruby">  def same_direction_suitable?(direction)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="27">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="27">
+          <span class="hits">5</span>
           
           <code class="ruby">    if direction == self.direction</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="28">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="28">
+          <span class="hits">3</span>
           
           <code class="ruby">      if direction == &quot;down&quot; &amp;&amp; @floor_called &lt; self.floor</code>
         </li>
@@ -798,8 +788,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="35">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="35">
+          <span class="hits">2</span>
           
           <code class="ruby">    false</code>
         </li>
@@ -822,14 +812,14 @@
           <code class="ruby">  def opp_direction_suitable?(direction)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="39">
+          <span class="hits">2</span>
           
           <code class="ruby">    if direction != self.direction</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="40">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="40">
+          <span class="hits">2</span>
           
           <code class="ruby">      if self.direction == &quot;down&quot; &amp;&amp; @floor_called &lt; self.floor</code>
         </li>
@@ -894,8 +884,8 @@
           <code class="ruby">  def stationary</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="51">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="51">
+          <span class="hits">2</span>
           
           <code class="ruby">    @floor_count - distance</code>
         </li>
@@ -990,8 +980,8 @@
           <code class="ruby">  def distance</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="67">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="67">
+          <span class="hits">2</span>
           
           <code class="ruby">    (self.floor - @floor_called).abs</code>
         </li>
@@ -2592,8 +2582,8 @@
           <code class="ruby">  factory :elevator do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="6" data-linenumber="4">
+          <span class="hits">6</span>
           
           <code class="ruby">    direction { &quot;stationary&quot; }</code>
         </li>
@@ -3097,6 +3087,372 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="f7f99ee598cf5d316bb7cd9f31a452f5cd1a7fa5">
+  <div class="header">
+    <h3>spec/models/elevator_spec.rb</h3>
+    <h4><span class="yellow">86.96 %</span> covered</h4>
+    <div>
+      <b>23</b> relevant lines. 
+      <span class="green"><b>20</b> lines covered</span> and
+      <span class="red"><b>3</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;rails_helper&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby"># For the purposes of these tests, N is the number of floors a building has,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"># and d is the distance between the elevator and the floor from where the call</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"># originates</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">describe Elevator do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="9">
+          <span class="hits">6</span>
+          
+          <code class="ruby">  let!(:building) { FactoryGirl.create(:building) }</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="10">
+          <span class="hits">6</span>
+          
+          <code class="ruby">  let!(:elevator) { FactoryGirl.create(:elevator, building_id: building.id) }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  it &quot;should initialize as stationary&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(elevator.direction).to eq &quot;stationary&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(elevator.building).to eq building</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  context &quot;elevator is called while stationary&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &quot;should have a FS equal to N - d&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(elevator.figure_of_suitability(7, &quot;down&quot;)).to eq 3</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  context &quot;the elevator is moving toward the call&quot; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &quot;should have an FS equal to N + 2 - d when the call is moving in the same direction&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      elevator.direction = &quot;up&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(elevator.figure_of_suitability(7, &quot;up&quot;)).to eq 5</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &quot;should have an FS equal to N + 1 - d when the call is moving in the opposite direction&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      elevator.direction = &quot;up&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(elevator.figure_of_suitability(7, &quot;down&quot;)).to eq 4</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  context &quot;the elevator is moving away from the call&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &quot;should have an FS equal to 1&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      elevator.floor = 5</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="39">
+          
+          
+          <code class="ruby">      elevator.direction = &quot;down&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="41">
+          
+          
+          <code class="ruby">      expect(elevator.figure_of_suitability(7, &quot;down&quot;)).to eq 1</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="42">
+          
+          
+          <code class="ruby">      expect(elevator.figure_of_suitability(7, &quot;up&quot;)).to eq 1</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="f19ed0c7c4cb2b382c093325cd148526bcd2ceda">
+  <div class="header">
+    <h3>spec/models/floor_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>6</b> relevant lines. 
+      <span class="green"><b>6</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;rails_helper&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">describe Floor do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  context &quot;associations&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="5">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should belong_to :building }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="6">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should have_many :elevators }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="7">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should belong_to :approaching_elevator }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">end</code>
