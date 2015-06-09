@@ -6,14 +6,16 @@ describe Building do
   let!(:elevator_1) { FactoryGirl.create(:elevator, building_id: building.id) }
   let!(:elevator_2) { FactoryGirl.create(:elevator, building_id: building.id) }
 
-    before(:each) do
-      building.assign_elevators_to_floors
-      elevator_1.reload
-      elevator_2.reload
-    end
+  before(:each) do
+    FactoryGirl.create_list(:floor, 10, building_id: building.id)
+
+    building.assign_elevators_to_floors
+    elevator_1.reload
+    elevator_2.reload
+  end
 
   it "should initialize with the correct number of floors" do
-    expect(building.floors).to eq 10
+    expect(building.floors.count).to eq 10
   end
 
   context "distributing elevators amongst a building" do
