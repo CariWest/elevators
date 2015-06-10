@@ -4,8 +4,7 @@ class Elevator < ActiveRecord::Base
   has_many    :queued_floors, foreign_key: :approaching_elevator_id
 
   def move_to(new_floor)
-    self.floor = new_floor
-    self.save!
+    self.update_attributes(floor: new_floor)
   end
 
   def figure_of_suitability(floor_called, direction)
@@ -13,13 +12,13 @@ class Elevator < ActiveRecord::Base
     @floor_called = floor_called
 
     if self.direction == "stationary"
-      fs = stationary
-    elsif same_direction_suitable?(direction)
-      fs = moving_same_direction
-    elsif opp_direction_suitable?(direction)
-      fs = moving_opp_direction
+      stationary
+    elsif same_direction_and_in_path?(direction)
+      moving_same_direction
+    elsif opp_direction_and_in_path?(direction)
+      moving_opp_direction
     else
-      fs = moving_away
+      moving_away
     end
   end
 
