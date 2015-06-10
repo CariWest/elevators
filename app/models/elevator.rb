@@ -22,11 +22,11 @@ class Elevator < ActiveRecord::Base
     end
   end
 
-  def same_direction_suitable?(direction)
+  def same_direction_and_in_path?(direction)
     if direction == self.direction
-      if direction == "down" && @floor_called < self.floor
+      if direction == "down" && @floor_called < self.floor.floor_num
         return true
-      elsif direction == "up" && @floor_called > self.floor
+      elsif direction == "up" && @floor_called > self.floor.floor_num
         return true
       end
     end
@@ -34,11 +34,11 @@ class Elevator < ActiveRecord::Base
     false
   end
 
-  def opp_direction_suitable?(direction)
+  def opp_direction_and_in_path?(direction)
     if direction != self.direction
-      if self.direction == "down" && @floor_called < self.floor
+      if self.direction == "down" && @floor_called < self.floor.floor_num
         return true
-      elsif self.direction == "up" && @floor_called > self.floor
+      elsif self.direction == "up" && @floor_called > self.floor.floor_num
         return true
       end
     end
@@ -63,6 +63,6 @@ class Elevator < ActiveRecord::Base
   end
 
   def distance
-    (self.floor - @floor_called).abs
+    (floor.floor_num - @floor_called).abs
   end
 end
