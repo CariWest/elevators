@@ -7,39 +7,46 @@ require 'rails_helper'
 describe Elevator do
 
   let!(:building) { FactoryGirl.create(:building) }
-  let!(:elevator) { FactoryGirl.create(:elevator, building_id: building.id) }
+
+  before(:each) do
+    10.times { |x| building.floors.create(building: building, floor_num: (x + 1)) }
+  end
+
+  let!(:elevator) { building.elevators.create(direction: "stationary", floor: building.floors.first) }
 
   it "should initialize as stationary" do
     expect(elevator.direction).to eq "stationary"
     expect(elevator.building).to eq building
   end
 
-  context "elevator is called while stationary" do
-    it "should have a FS equal to N - d" do
-      expect(elevator.figure_of_suitability(7, "down")).to eq 3
-    end
-  end
-
-  context "the elevator is moving toward the call" do
-
-    it "should have an FS equal to N + 2 - d when the call is moving in the same direction" do
-      elevator.direction = "up"
-      expect(elevator.figure_of_suitability(7, "up")).to eq 5
+  context "determining Figure of Suitability (FS)" do
+    context "is called while stationary" do
+      it "should have an FS equal to N - d" do
+        expect(elevator.figure_of_suitability(7, "down")).to eq 4
+      end
     end
 
-    it "should have an FS equal to N + 1 - d when the call is moving in the opposite direction" do
-      elevator.direction = "up"
-      expect(elevator.figure_of_suitability(7, "down")).to eq 4
+    context "is moving toward the call" do
+
+      it "should have an FS equal to N + 2 - d when the call is moving in the same direction" do
+        elevator.direction = "up"
+        expect(elevator.figure_of_suitability(7, "up")).to eq 6
+      end
+
+      it "should have an FS equal to N + 1 - d when the call is moving in the opposite direction" do
+        elevator.direction = "up"
+        expect(elevator.figure_of_suitability(7, "down")).to eq 5
+      end
     end
-  end
 
-  context "the elevator is moving away from the call" do
-    it "should have an FS equal to 1" do
-      elevator.floor = 5
-      elevator.direction = "down"
+    context "the elevator is moving away from the call" do
+      it "should have an FS equal to 1" do
+        elevator.floor = Floor.find_by(floor_num: 5)
+        elevator.direction = "down"
 
-      expect(elevator.figure_of_suitability(7, "down")).to eq 1
-      expect(elevator.figure_of_suitability(7, "up")).to eq 1
+        expect(elevator.figure_of_suitability(7, "down")).to eq 1
+        expect(elevator.figure_of_suitability(7, "up")).to eq 1
+      end
     end
   end
 
