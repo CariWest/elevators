@@ -22,7 +22,7 @@ class ElevatorsController < ApplicationController
       elevator:               elevator,
       elevator_floor:         elevator.floor.floor_num,
       elevator_direction:     elevator.direction,
-      figure_of_suitability:  elevator.figure_of_suitability
+      figure_of_suitability:  figure_of_suitability
     }
   end
 
