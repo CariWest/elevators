@@ -13,6 +13,7 @@ describe Elevator do
   end
 
   let!(:elevator) { building.elevators.create(direction: "stationary", floor: building.floors.first) }
+  let!(:floor_7) { Floor.find_by(floor_num: 7) }
 
   it "should initialize as stationary" do
     expect(elevator.direction).to eq "stationary"
@@ -22,7 +23,7 @@ describe Elevator do
   context "determining Figure of Suitability (FS)" do
     context "is called while stationary" do
       it "should have an FS equal to N - d" do
-        expect(elevator.figure_of_suitability(7, "down")).to eq 4
+        expect(elevator.figure_of_suitability(floor_7, "down")).to eq 4
       end
     end
 
@@ -30,12 +31,12 @@ describe Elevator do
 
       it "should have an FS equal to N + 2 - d when the call is moving in the same direction" do
         elevator.direction = "up"
-        expect(elevator.figure_of_suitability(7, "up")).to eq 6
+        expect(elevator.figure_of_suitability(floor_7, "up")).to eq 6
       end
 
       it "should have an FS equal to N + 1 - d when the call is moving in the opposite direction" do
         elevator.direction = "up"
-        expect(elevator.figure_of_suitability(7, "down")).to eq 5
+        expect(elevator.figure_of_suitability(floor_7, "down")).to eq 5
       end
     end
 
@@ -44,8 +45,8 @@ describe Elevator do
         elevator.floor = Floor.find_by(floor_num: 5)
         elevator.direction = "down"
 
-        expect(elevator.figure_of_suitability(7, "down")).to eq 1
-        expect(elevator.figure_of_suitability(7, "up")).to eq 1
+        expect(elevator.figure_of_suitability(floor_7, "down")).to eq 1
+        expect(elevator.figure_of_suitability(floor_7, "up")).to eq 1
       end
     end
   end
