@@ -20,6 +20,8 @@ class Elevator < ActiveRecord::Base
 
   private
 
+  # for calls which are in the path of the elevator and heading
+  # in the same direction
   def same_direction_and_in_path?(called_direction)
     if called_direction == direction
       if direction == "down" && @floor_num_called < current_floor
@@ -32,6 +34,8 @@ class Elevator < ActiveRecord::Base
     false
   end
 
+  # for calls which are in the path of the elevator but heading
+  # in the opposite direction
   def opp_direction_and_in_path?(called_direction)
     if called_direction != direction
       if direction == "down" && @floor_num_called < current_floor

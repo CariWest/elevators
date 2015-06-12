@@ -3,6 +3,8 @@ class Building < ActiveRecord::Base
   has_many :floors
 
   def assign_elevators_to_floors
+    # assigns elevators to a floor when a building, floors, and elevators are
+    # initialized in a system.
     floors_per_section = floors.count / elevators.count
 
     elevators.each_with_index do |elevator, index|
@@ -17,6 +19,8 @@ class Building < ActiveRecord::Base
 
     return best_elevator
   end
+
+  private
 
   def find_elevator(floor_called, direction)
     best_elevator = self.elevators.first

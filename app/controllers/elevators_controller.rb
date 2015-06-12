@@ -15,6 +15,8 @@ class ElevatorsController < ApplicationController
 
   end
 
+  private
+
   def construct_elevator_json_object(elevator, floor_called, direction)
     figure_of_suitability = elevator.figure_of_suitability(floor_called, direction)
 
