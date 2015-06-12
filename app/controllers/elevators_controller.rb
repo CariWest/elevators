@@ -6,14 +6,10 @@ class ElevatorsController < ApplicationController
     # stubbed for complexity
     @building = Building.first
 
-    floor_called = params[:floor]
+    floor_called = building.floors.find_by(floor_num: params[:floor])
     direction = params[:direction]
 
-    elevator = @building.find_elevator({
-      floor: floor,
-      direction: direction
-    })
-
+    elevator = building.call_elevator(floor_called, direction)
     figure_of_suitability = elevator.figure_of_suitability(floor_called, direction)
 
     render json: {
@@ -24,6 +20,7 @@ class ElevatorsController < ApplicationController
       elevator_direction:     elevator.direction,
       figure_of_suitability:  figure_of_suitability
     }
+
   end
 
 end

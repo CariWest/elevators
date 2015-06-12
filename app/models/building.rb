@@ -11,6 +11,13 @@ class Building < ActiveRecord::Base
     end
   end
 
+  def call_elevator(floor_called, direction)
+    best_elevator = find_elevator(floor_called, direction)
+    queue_elevator(floor_called, best_elevator)
+
+    return best_elevator
+  end
+
   def find_elevator(floor_called, direction)
     best_elevator = self.elevators.first
     best_fs = 0
@@ -23,7 +30,11 @@ class Building < ActiveRecord::Base
       end
     end
 
-    # elevator.queue_floor(floor_called)
     return best_elevator
+  end
+
+  def queue_elevator(floor_called, elevator)
+    elevator.queued_floors << floor_called
+    elevator.move_to(floor_called)
   end
 end
