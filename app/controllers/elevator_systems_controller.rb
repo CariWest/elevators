@@ -1,6 +1,6 @@
-class ElevatorsController < ApplicationController
+class ElevatorSystemsController < ApplicationController
 
-  def nearest
+  def call
     # expects params: { floor: [current_floor], direction: [direction]}, where floor is an integer and direction is either "up" or "down"
 
     # stubbed for complexity
