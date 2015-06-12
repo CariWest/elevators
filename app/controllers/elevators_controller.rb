@@ -10,26 +10,31 @@ class ElevatorsController < ApplicationController
     direction = params[:direction]
 
     elevator = building.call_elevator(floor_called, direction)
-
-    render json: construct_elevator_json_object(elevator, floor_called, direction)
+    render json: nearest_elevator_json_object(elevator, floor_called, direction)
 
   end
 
   private
 
-  def construct_elevator_json_object(elevator, floor_called, direction)
+  def nearest_elevator_json_object(elevator, floor_called, direction)
     figure_of_suitability = elevator.figure_of_suitability(floor_called, direction)
 
     {
       floor_called:     floor_called.floor_num,
       direction_called: direction,
       elevator: {
-        id:                     elevator.id,
-        origin_floor:           elevator.floor.floor_num,
-        moving_direction:       elevator.direction,
-        figure_of_suitability:  figure_of_suitability,
-        queued_floors:          elevator.queued_floors.sort_by { |floor| floor.floor_num }.map { |floor| construct_floor_json_object(floor) }
+        construct_elevator_json_object(elevator)
       }
+    }
+  end
+
+  def construct_elevator_json_object(elevator)
+    {
+      id:                     elevator.id,
+      origin_floor:           elevator.floor.floor_num,
+      moving_direction:       elevator.direction,
+      figure_of_suitability:  figure_of_suitability,
+      queued_floors:          elevator.queued_floors.sort_by { |floor| floor.floor_num }.map { |floor| construct_floor_json_object(floor) }
     }
   end
 
