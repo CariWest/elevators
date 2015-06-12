@@ -4,9 +4,9 @@ class ElevatorsController < ApplicationController
     # expects params: { floor: [current_floor], direction: [direction]}, where floor is an integer and direction is either "up" or "down"
 
     # stubbed for complexity
-    @building = Building.first
+    building = Building.first
 
-    floor_called = building.floors.find_by(floor_num: params[:floor])
+    floor_called = building.floors.find_by(floor_num: params[:floor].to_i)
     direction = params[:direction]
 
     elevator = building.call_elevator(floor_called, direction)
@@ -20,6 +20,7 @@ class ElevatorsController < ApplicationController
       elevator_direction:     elevator.direction,
       figure_of_suitability:  figure_of_suitability
     }
+  end
 
   end
 
