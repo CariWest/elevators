@@ -31,7 +31,7 @@ class ElevatorSystemsController < ApplicationController
       origin_floor:           elevator.floor.floor_num,
       moving_direction:       elevator.direction,
       figure_of_suitability:  figure_of_suitability,
-      queued_floors:          elevator.queued_floors.sort_by { |floor| floor.floor_num }.map { |floor| construct_floor_json_object(floor) }
+      queued_floors:          elevator.queued_floors.map { |floor| construct_floor_json_object(floor) }
     }
   end
 
