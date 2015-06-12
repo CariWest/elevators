@@ -3,11 +3,6 @@ class Elevator < ActiveRecord::Base
   belongs_to  :floor
   has_many    :queued_floors, foreign_key: :approaching_elevator_id, class_name: "Floor"
 
-  def move_to(new_floor)
-    set_moving_direction
-    self.update_attributes(floor: new_floor)
-  end
-
   def figure_of_suitability(floor_called, called_direction)
     @floor_count = building.floors.count
     @floor_num_called = floor_called.floor_num
@@ -65,10 +60,6 @@ class Elevator < ActiveRecord::Base
 
   def distance
     (current_floor - @floor_num_called).abs
-  end
-
-  def set_moving_direction
-    direction = (@floor_num_called - current_floor) >= 0 ? "up" : "down"
   end
 
   def current_floor

@@ -35,6 +35,5 @@ class Building < ActiveRecord::Base
 
   def queue_elevator(floor_called, elevator)
     elevator.queued_floors << floor_called
-    elevator.move_to(floor_called)
   end
 end
