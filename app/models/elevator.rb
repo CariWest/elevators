@@ -8,15 +8,17 @@ class Elevator < ActiveRecord::Base
     @floor_num_called = floor_called.floor_num
 
     if self.direction == "stationary"
-      stationary
+      stationary_fs
     elsif same_direction_and_in_path?(called_direction)
-      moving_same_direction
+      moving_same_direction_fs
     elsif opp_direction_and_in_path?(called_direction)
-      moving_opp_direction
+      moving_opp_direction_fs
     else
-      moving_away
+      moving_away_fs
     end
   end
+
+  private
 
   def same_direction_and_in_path?(called_direction)
     if called_direction == direction
@@ -42,20 +44,22 @@ class Elevator < ActiveRecord::Base
     false
   end
 
-  def stationary
+  # HELPER METHODS: for calculating the Figure of Suitability and
+  # determining the direction in which an elevator should move
+  def stationary_fs
     @floor_count - distance
   end
 
-  def moving_same_direction
+  def moving_same_direction_fs
     (@floor_count + 2) - distance
   end
 
-  def moving_opp_direction
+  def moving_opp_direction_fs
     (@floor_count + 1) - distance
   end
 
-  def moving_away
-    1
+  def moving_away_fs
+    1gi
   end
 
   def distance
