@@ -63,7 +63,7 @@ class Elevator < ActiveRecord::Base
   end
 
   def moving_away_fs
-    1gi
+    1
   end
 
   def distance

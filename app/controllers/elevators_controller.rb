@@ -18,17 +18,14 @@ class ElevatorsController < ApplicationController
 
   def nearest_elevator_json_object(elevator, floor_called, direction)
     figure_of_suitability = elevator.figure_of_suitability(floor_called, direction)
-
     {
       floor_called:     floor_called.floor_num,
       direction_called: direction,
-      elevator: {
-        construct_elevator_json_object(elevator)
-      }
+      elevator: construct_elevator_json_object(elevator, figure_of_suitability)
     }
   end
 
-  def construct_elevator_json_object(elevator)
+  def construct_elevator_json_object(elevator, figure_of_suitability)
     {
       id:                     elevator.id,
       origin_floor:           elevator.floor.floor_num,
