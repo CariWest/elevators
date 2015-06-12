@@ -8,23 +8,23 @@ class Elevator < ActiveRecord::Base
     self.update_attributes(floor: new_floor)
   end
 
-  def figure_of_suitability(floor_called, direction)
+  def figure_of_suitability(floor_called, called_direction)
     @floor_count = building.floors.count
     @floor_num_called = floor_called.floor_num
 
     if self.direction == "stationary"
       stationary
-    elsif same_direction_and_in_path?(direction)
+    elsif same_direction_and_in_path?(called_direction)
       moving_same_direction
-    elsif opp_direction_and_in_path?(direction)
+    elsif opp_direction_and_in_path?(called_direction)
       moving_opp_direction
     else
       moving_away
     end
   end
 
-  def same_direction_and_in_path?(direction)
-    if direction == self.direction
+  def same_direction_and_in_path?(called_direction)
+    if called_direction == direction
       if direction == "down" && @floor_num_called < current_floor
         return true
       elsif direction == "up" && @floor_num_called > current_floor
@@ -35,11 +35,11 @@ class Elevator < ActiveRecord::Base
     false
   end
 
-  def opp_direction_and_in_path?(direction)
-    if direction != self.direction
-      if self.direction == "down" && @floor_num_called < current_floor
+  def opp_direction_and_in_path?(called_direction)
+    if called_direction != direction
+      if direction == "down" && @floor_num_called < current_floor
         return true
-      elsif self.direction == "up" && @floor_num_called > current_floor
+      elsif direction == "up" && @floor_num_called > current_floor
         return true
       end
     end
