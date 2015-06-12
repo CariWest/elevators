@@ -3,17 +3,11 @@ class Building < ActiveRecord::Base
   has_many :floors
 
   def assign_elevators_to_floors
-    num_floors = self.floors.count
-    num_elevators = self.elevators.count
-
-    num_sections = num_elevators
-    floors_per_section = num_floors / num_sections
+    floors_per_section = floors.count / elevators.count
 
     elevators.each_with_index do |elevator, index|
       floor_num = (index * floors_per_section) + (floors_per_section / 2)
-      new_floor = Floor.find_by(floor_num: floor_num)
-      elevator.move_to(new_floor)
-      elevator.save!
+      elevator.update_attributes(floor: Floor.find_by(floor_num: floor_num))
     end
   end
 

@@ -1,7 +1,7 @@
 class Elevator < ActiveRecord::Base
   belongs_to  :building
   belongs_to  :floor
-  has_many    :queued_floors, foreign_key: :approaching_elevator_id
+  has_many    :queued_floors, foreign_key: :approaching_elevator_id, class_name: "Floor"
 
   def move_to(new_floor)
     self.update_attributes(floor: new_floor)
@@ -64,5 +64,9 @@ class Elevator < ActiveRecord::Base
 
   def distance
     (floor.floor_num - @floor_called).abs
+  end
+
+  def moving_direction(floor_called, elevator_floor)
+    (floor_called - elevator_floor) >= 0 ? "up" : "down"
   end
 end
